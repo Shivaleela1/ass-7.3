@@ -1,0 +1,35 @@
+package practiceProg;
+
+import java.util.Scanner;
+
+class PerfectPrime
+{
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);  //Declaring Scanner variable to take input from user
+		 
+        System.out.println("Enter two Strings");
+
+        String webapple = sc.next();
+        String apple = sc.next();
+	    char[] webappleArray = webapple.toCharArray();//converting to char
+	    char[] appleArray = apple.toCharArray();
+	    System.out.println(isPresent(appleArray, webappleArray));//calling method isPresent
+	}
+
+	public static boolean isPresent(char[] apple, char[] webapple) {//logic to find the sub string
+		
+	    for (int i = 0; i < webapple.length - apple.length+1; i++) {
+	        for (int j = 0; j < apple.length; j++) {
+	            if (webapple[i + j] == apple[j]) {
+	                if (j == apple.length - 1) {
+	                    return true;
+	                }
+	            } else {
+	                break;
+	            }
+	        }
+	    }
+	    return false;
+	}
+}
